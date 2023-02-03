@@ -1,0 +1,26 @@
+<RCC>
+    <qresource prefix="/Views">
+        <file alias="main.qml">Views/main.qml</file>
+        <file alias="Login.qml">Views/Login.qml</file>
+        <file alias="Clock/HourNeedle.qml">Views/clock/HourNeedle.qml</file>
+        <file alias="Clock/MinutesNeedle.qml">Views/clock/MinutesNeedle.qml</file>
+        <file alias="Clock/SecondNeedle.qml">Views/clock/SecondNeedle.qml</file>
+        <file alias="Clock/Clock.qml">Views/clock/Clock.qml</file>
+        <file alias="Report.qml">Views/Report.qml</file>
+        <file alias="Publishers.qml">Views/Publishers.qml</file>
+        <file alias="Settings.qml">Views/Settings.qml</file>
+        <file alias="DashBoard.qml">Views/DashBoard.qml</file>
+        <file alias="DashBoardButton.qml">Views/DashBoardButton.qml</file>
+        <file alias="AddReport.qml">Views/AddReport.qml</file>
+        <file alias="ReportTable.qml">Views/ReportTable.qml</file>
+        <file alias="ReportAnalysis.qml">Views/ReportAnalysis.qml</file>
+        <file alias="DatabaseSetting.qml">Views/DatabaseSetting.qml</file>
+        <file alias="ThemeSetting.qml">Views/ThemeSetting.qml</file>
+        <file alias="DownloadSetting.qml">Views/DownloadSetting.qml</file>
+        <file alias="AddPublisher.qml">Views/AddPublisher.qml</file>
+        <file alias="PublisherComponent.qml">Views/PublisherComponent.qml</file>
+        <file alias="UpdatePublisher.qml">Views/UpdatePublisher.qml</file>
+        <file alias="GroupSetting.qml">Views/GroupSetting.qml</file>
+    </qresource>
+
+</RCC>

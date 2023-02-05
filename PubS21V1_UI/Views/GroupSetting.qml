@@ -5,42 +5,51 @@ Rectangle{
     anchors.fill: parent
     Row{
         spacing: 100
-        anchors.horizontalCenter: parent.horizontalCenter
+       anchors.fill: parent
         Rectangle{
+            id:grouplist
             width:0.5*parent.width
             height:400
-            id:viewGroups
-           ListView{
-               model:["Mathaithi","Kiamabara","Town","Congration"]
-               delegate: Rectangle{
-                   width: parent.width
-                   height: 200
-                   radius: 5
+            ListView{
+                anchors.fill: parent
+                model:["Mathaithi","Kiamabara","Town","Congration"]
+                delegate: Rectangle{
+                    width: parent.width
+                    height: 200
+                    radius: 5
+                    Text {
+                        id: name
+                        text: qsTr("text")
+                    }
 
-               }
-           }
+                }
+            }
         }
         Rectangle{
             id:addGroups
-            anchors.centerIn: parent
+            anchors{
+                left: grouplist.left
+                leftMargin:0.2*parent.width
+                right:parent.left
+                rightMargin:0.2*parent.width
+            }
 
-
-         Column{
-             Label{
-                  text: qsTr("ADD SERVICE GROUP")
-             }
-             TextField{
-                 width:200
-             }
-             Row{
-                 Button{
-                     text:"Save"
-                 }
-                 Button{
-                     text:"Cancel"
-                 }
-             }
-         }
+            Column{
+                Label{
+                    text: qsTr("ADD SERVICE GROUP")
+                }
+                TextField{
+                    width:200
+                }
+                Row{
+                    Button{
+                        text:"Save"
+                    }
+                    Button{
+                        text:"Cancel"
+                    }
+                }
+            }
         }
     }
 }

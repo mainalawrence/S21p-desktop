@@ -12,7 +12,7 @@ Rectangle{
             id:grouplist
             width:0.5*root.width
             height:root.height
-            color: "red"
+
             ListView{
                 anchors.horizontalCenter: parent.horizontalCenter
                 height: root.height
@@ -30,7 +30,7 @@ Rectangle{
         }
         Rectangle{
             id:addGroups
-            color: "green"
+
             width: 0.5*root.width
             height: parent.height
             Column{

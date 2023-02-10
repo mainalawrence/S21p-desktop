@@ -22,7 +22,9 @@ SOURCES +=Source/main.cpp\
 
 
 RESOURCES += \
-    Views.qrc
+    Stylesheet.qrc \
+    Views.qrc \
+    images/Images.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =$$PWD

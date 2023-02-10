@@ -3,6 +3,8 @@
 #include<QtQuickControls2>
 #include<QQmlContext>
 #include<QIcon>
+#include<QFile>
+
 #include <../../PubS21V1_LIB/Src/Controller/mastercontroller.h>
 
 int main(int argc, char *argv[])
@@ -10,16 +12,20 @@ int main(int argc, char *argv[])
 
     auto icon= QImage("../images/logo.png");
 
+    QFile stylesheetFile("./SpyBot.qss");
+    stylesheetFile.open(QFile::ReadOnly);
+    const QString stylesheet=QLatin1String(stylesheetFile.readAll());
 
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QApplication app(argc, argv);
+    app.setStyleSheet(stylesheet);
 
     //qmlRegisterType<Controller::MasterController>("pos",1,0,"Mastercontroller");
     app.setWindowIcon(QIcon( QPixmap::fromImage(icon)));
 
-  //  Controller::MasterController MasterController;
+    //  Controller::MasterController MasterController;
     QQmlApplicationEngine engine;
-   // engine.rootContext()->setContextProperty("masterController",&MasterController);
+    // engine.rootContext()->setContextProperty("masterController",&MasterController);
     QQuickStyle::setStyle("Fusion");
     engine.load(QUrl(QStringLiteral("qrc:/Views/main.qml")));
     return app.exec();

@@ -7,12 +7,13 @@ import QtQuick.Layouts 1.3
 Item {
     id: name
     anchors.fill: parent
-    property string backGroundcolor: "gray"
+
     property bool  timerpageS: false
 
         Rectangle{
             id:rectroot
             anchors.fill: parent
+            color:"#e7e7e7"
 
             Image {
                 id: myimg

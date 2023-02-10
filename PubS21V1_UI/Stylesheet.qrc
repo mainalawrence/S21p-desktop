@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/Stylesheet">
+        <file alias="material-ocean.qss">Styles/material-ocean.qss</file>
+    </qresource>
+</RCC>

@@ -3,6 +3,7 @@ import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 Rectangle{
     id:root
+
     anchors.fill: parent
     Row{
         anchors.fill: parent
@@ -14,6 +15,10 @@ Rectangle{
             height:root.height
 
             ListView{
+                Rectangle{
+                    anchors.fill: parent
+                    color: "transparent"
+                }
                 anchors.horizontalCenter: parent.horizontalCenter
                 height: root.height
                 model:["Mathaithi","Kiamabara","Town","Congration"]

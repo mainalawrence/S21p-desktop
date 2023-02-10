@@ -4,48 +4,66 @@ import QtQuick.Controls.Styles 1.4
 
 Item {
     anchors.fill: parent
-    TabView {
+    Rectangle{
+        id:navigationMenu
+//        width:20
+//        height: parent.height
+        anchors{
+            bottom: parent.bottom
+            top: parent.top
+            left: parent.right
+
+        }
+        color: "red"
+       Column{
         anchors.fill: parent
-        Tab {
-            anchors.fill: parent
-            title: "Service Groups"
-            GroupSetting{}
-        }
-        Tab {
-            anchors.fill: parent
-            title: "Download"
-            DownloadSetting{}
-
-        }
-        Tab {
-            title: "Theme"
-            ThemeSetting{}
-
-        }
-        Tab {
-            title: "Database"
-            DatabaseSetting{}
-        }
-
-        style: TabViewStyle {
-            frameOverlap:1
-            tab: Rectangle {
-                color: styleData.selected ? "steelblue" :"lightsteelblue"
-                border.color: "steelblue"
-                implicitWidth: Math.max(text.width + 4, 80)
-                implicitHeight: 35
-                radius: 5
-                Text {
-                    id: text
-                    anchors.centerIn: parent
-                    text: styleData.title
-                    color: styleData.selected ? "white" : "black"
-                }
-            }
-            frame: Rectangle { color: "steelblue" }
-            tabsAlignment:Qt.AlignHCenter
-
-        }
-
+           Button{
+               text: "Group Setting"
+               onClicked:{
+                   settingView.pop();
+                   settingView.push(GroupSetting)
+               }
+           }
+           Button{
+               text: "Download Setting"
+               onClicked:{
+                   settingView.pop();
+                   settingView.push(DownloadSetting)
+               }
+           }
+           Button{
+               text: "Theme Setting"
+               onClicked:{
+                   settingView.pop();
+                   settingView.push(ThemeSetting)
+               }
+           }
+           Button{
+               text: "Database Setting"
+               onClicked:{
+                   settingView.pop();
+                   settingView.push(DatabaseSetting)
+               }
+           }
+       }
     }
+    Rectangle{
+        id:mainWindow
+        width: 0.7*parent.width
+        anchors{
+            right: parent.right
+            bottom: parent.bottom
+            top: parent.top
+            left: navigationMenu.right
+        }
+         color: "green"
+        StackView{
+            id:settingView
+            anchors.fill: parent
+            initialItem: Qt.resolvedUrl("Settings.qml")
+
+        }
+    }
+
+
 }

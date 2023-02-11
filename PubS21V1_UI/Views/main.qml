@@ -15,10 +15,11 @@ ApplicationWindow {
     property color darkFontColor: "#e7e7e7"
     readonly property color lightBackgroundColor: "#cccccc"
     readonly property color darkBackgroundColor: "#161616"
-//    title: masterController.ui_message
+    readonly property color darkbluegroundColor: "#181D31"
+//    title: masterController.ui_message+"hello wolrd"
     Rectangle{
         anchors.fill: parent
-        color: "#181D31"
+        color:darkBackgroundColor
     }
 
    // QML_IMPORT_PATH

@@ -5,7 +5,7 @@
 #include<QIcon>
 #include<QFile>
 
-#include <../../PubS21V1_LIB/Src/Controller/mastercontroller.h>
+#include "../../PubS21V1_LIB/Src/Controller/mastercontroller.h"
 
 int main(int argc, char *argv[])
 {

@@ -1,9 +1,9 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.5
-
-Item {
+ import QtQml 2.12
+Component {
     id:root
-    anchors.fill: parent
+
     Frame{
         clip: true
         height: 0.5*root.height

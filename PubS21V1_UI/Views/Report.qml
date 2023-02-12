@@ -1,47 +1,72 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
+import QtQml 2.12
+
 
 Item {
     anchors.fill: parent
-    TabView {
-        anchors.fill: parent
-        Tab {
-            anchors.fill: parent
-            title: "Analysis"
-            ReportAnalysis{}
-        }
-        Tab {
-            title: "Report"
-            ReportTable{
-            }
-        }
-        Tab {
-            title: "Add"
-            AddReport{
+    Rectangle{
+        id:navigationMenu
+        width: 0.2*parent.width
+        height: parent.height
+        color: "#222"
+        Column{
+            spacing:20
+            anchors.horizontalCenter: parent.horizontalCenter
 
-            }
-        }
-
-        style: TabViewStyle {
-            frameOverlap:1
-            tab: Rectangle {
-                color: styleData.selected ? "steelblue" :"lightsteelblue"
-                border.color: "steelblue"
-                implicitWidth: Math.max(text.width + 4, 80)
-                implicitHeight: 35
-                radius: 5
-                Text {
-                    id: text
-                    anchors.centerIn: parent
-                    text: styleData.title
-                    color: styleData.selected ? "white" : "black"
+            Button{
+                text: "Report Analysis"
+                onClicked:{
+                    settingView.replace(reportAnalysis,StackView.Immediate)
                 }
             }
-            frame: Rectangle { color: "steelblue" }
-            tabsAlignment:Qt.AlignHCenter
+            Button{
+                text: "Report Table"
+                onClicked:{
+                    settingView.replace(reportTable,StackView.Immediate)
+                }
+            }
+            Button{
+                text: "Add Report"
+                onClicked:{
+                    settingView.replace(addreport,StackView.Immediate)
+                }
+            }
 
+        }
+    }
+    Rectangle{
+        id:mainWindow
+        anchors{
+            right: parent.right
+            bottom: parent.bottom
+            top: parent.top
+            left: navigationMenu.right
+            leftMargin: 10
+        }
+        color: "transparent"
+        StackView{
+            id:settingView
+            anchors.fill: parent
+            initialItem:reportAnalysis
         }
 
     }
+    Component{
+        id:reportAnalysis
+        ReportAnalysis{}
+    }
+
+    Component{
+        id:reportTable
+        ReportTable{ }
+    }
+    Component{
+        id:addreport
+        AddReport{}
+    }
+
 }
+
+

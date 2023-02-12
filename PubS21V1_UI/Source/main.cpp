@@ -12,13 +12,13 @@ int main(int argc, char *argv[])
 
     auto icon= QImage("../images/logo.png");
 
-    QFile stylesheetFile("./SpyBot.qss");
-    stylesheetFile.open(QFile::ReadOnly);
-    const QString stylesheet=QLatin1String(stylesheetFile.readAll());
 
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QApplication app(argc, argv);
-    app.setStyleSheet(stylesheet);
+//        QFile stylesheetFile("./Style/material-ocean.qss");
+//        stylesheetFile.open(QFile::ReadOnly);
+//        const QString stylesheet=QLatin1String(stylesheetFile.readAll());
+//        app.setStyleSheet(stylesheet);
 
     //qmlRegisterType<Controller::MasterController>("pos",1,0,"Mastercontroller");
     app.setWindowIcon(QIcon( QPixmap::fromImage(icon)));

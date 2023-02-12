@@ -1,14 +1,12 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.5
- import QtQml 2.12
-Component {
-    id:root
 
-    Frame{
+
+
+    Rectangle{
+        anchors.fill: parent
         clip: true
-        height: 0.5*root.height
-        width: 0.5*root.width
-        anchors.centerIn: parent
+        color: "red"
         Grid{
             clip: true
             columns: 2
@@ -36,4 +34,4 @@ Component {
             }
         }
     }
-}
+

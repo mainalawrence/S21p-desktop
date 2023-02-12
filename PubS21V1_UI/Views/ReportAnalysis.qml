@@ -2,13 +2,13 @@ import QtQuick 2.0
 import QtQuick.Controls 1.4
 Rectangle {
     id:root
+    anchors.fill: parent
     Grid{
         id:grid
         anchors{
             left: parent.left
             right: parent.right
             top: parent.top
-
             margins: 20
             leftMargin:0.08*parent.width
         }

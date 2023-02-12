@@ -12,51 +12,70 @@ Item {
        Column{
            spacing:20
         anchors.horizontalCenter: parent.horizontalCenter
+
            Button{
                text: "Group Setting"
                onClicked:{
-                   settingView.replace(GroupSetting, StackView.Immediate)
+                   settingView.replace(groupsetting,StackView.Immediate)
                }
            }
            Button{
                text: "Download Setting"
                onClicked:{
-
-                   settingView.replace(DownloadSetting, StackView.Immediate)
+                   settingView.replace(downloadSetting,StackView.Immediate)
                }
            }
            Button{
                text: "Theme Setting"
                onClicked:{
-
-                   settingView.replace(ThemeSetting, StackView.Immediate)
+                   settingView.replace(themeSetting,StackView.Immediate)
                }
            }
            Button{
                text: "Database Setting"
                onClicked:{
-                   settingView.push(DatabaseSetting, StackView.Immediate)
+                   settingView.replace(databaseSetting,StackView.Immediate)
                }
            }
        }
     }
     Rectangle{
         id:mainWindow
-        width:0.7*parent.width
         anchors{
             right: parent.right
             bottom: parent.bottom
             top: parent.top
             left: navigationMenu.right
+            leftMargin: 10
         }
        color: "transparent"
         StackView{
             id:settingView
-            initialItem:"ThemeSetting.qml"
+            anchors.fill: parent
+//            clip: true
+            initialItem:groupsetting
         }
 
     }
+Component{
+    id:groupsetting
+    GroupSetting{
 
+    }
+}
+
+Component{
+    id:downloadSetting
+    DownloadSetting{}
+}
+Component{
+    id:themeSetting
+    ThemeSetting{}
+}
+Component{
+    id:databaseSetting
+    DatabaseSetting{}
+}
 
 
 

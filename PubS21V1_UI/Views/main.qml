@@ -36,7 +36,7 @@ ApplicationWindow {
     StackView{
         id:mainview
         anchors.fill: parent
-        initialItem: Qt.resolvedUrl("Report.qml")
+        initialItem: Qt.resolvedUrl("Publishers.qml")
         //initialItem: Qt.resolvedUrl("Login.qml")
     }
 }

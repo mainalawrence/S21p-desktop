@@ -4,10 +4,9 @@ import QtQuick.Controls 1.4
 Rectangle {
     TableView{
         id:tableView
-        anchors.fill: parent
-        model: masterController.ui_itemviewsmodel  //the model is to be over here
-        height: rootframe.height
-        width: rootframe.width/2
+//        model: masterController.ui_itemviewsmodel  //the model is to be over here
+        height: parent.height
+        width: parent.width
 
         TableViewColumn{
             title: "Item Id"

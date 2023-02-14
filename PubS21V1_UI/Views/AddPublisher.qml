@@ -2,7 +2,8 @@ import QtQuick 2.0
 import QtQuick.Controls 1.4
 
 Rectangle {
-
+    width: parent.width
+    height: parent.height
     Column{
         spacing:10
         anchors.horizontalCenter:parent.horizontalCenter

@@ -48,7 +48,7 @@ const QString MasterController::userRole() const
 }
 const QString MasterController::message() const
 {
-    return BusinessName;
+    return "This is just for  testing..........";
 
 }
 

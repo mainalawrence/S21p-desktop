@@ -16,7 +16,7 @@ ApplicationWindow {
     readonly property color lightBackgroundColor: "#cccccc"
     readonly property color darkBackgroundColor: "#161616"
     readonly property color darkbluegroundColor: "#181D31"
-//    title: masterController.ui_message+"hello wolrd"
+    title: masterController.ui_message
     Rectangle{
         anchors.fill: parent
         color:darkBackgroundColor

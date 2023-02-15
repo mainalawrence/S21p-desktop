@@ -4,9 +4,12 @@ QT += printsupport
 
 
 TEMPLATE = lib
+
 DEFINES += LIB_LIBRARY
 
 CONFIG += c++20
+
+QMAKE_CXXFLAGS_WARN_ON = -Wall -Wno-unused-parameter
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.

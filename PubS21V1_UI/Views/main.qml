@@ -19,6 +19,8 @@ ApplicationWindow {
     Material.theme: Material.Dark
     Material.accent: Material.Purple
 
+
+
     // QML_IMPORT_PATH
     //    Connections{
     //        //target:masterController.ui_navigationController
@@ -33,8 +35,8 @@ ApplicationWindow {
     StackView{
         id:mainview
         anchors.fill: parent
-        initialItem: Qt.resolvedUrl("Publishers.qml")
-        //initialItem: Qt.resolvedUrl("Login.qml")
+//        initialItem: Qt.resolvedUrl("Publishers.qml")
+        initialItem: Qt.resolvedUrl("Report.qml")
     }
 
 }

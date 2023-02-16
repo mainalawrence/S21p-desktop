@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.3
+import QtQuick.Controls.Material 2.12
 
 
 
@@ -10,67 +11,62 @@ Item {
 
     property bool  timerpageS: false
 
-        Pane{
-            id:rectroot
-            anchors.fill: parent
+    Pane{
+        id:rectroot
+        anchors.fill: parent
 
-            Image {
-                id: myimg
-//                source: "../images/hotel.jpeng"
-                anchors.fill: parent
-                height: 200
-                width:rectroot.width/2+10
-                Label{
-                    anchors.right: parent.right
-                    anchors.topMargin: 40
-                    anchors.top: parent.top
-                    anchors.rightMargin: 20
-                    text:Qt.formatTime(id_root.currentDate,"h:m.s ap")
-                    color:"Black"
-                    font.pixelSize:16
+        Image {
+            id: myimg
+            //                source: "../images/hotel.jpeng"
+            anchors.fill: parent
+            height: 200
+            width:rectroot.width/2+10
+            Label{
+                anchors.right: parent.right
+                anchors.topMargin: 40
+                anchors.top: parent.top
+                anchors.rightMargin: 20
+//                text:Qt.formatTime(id_root.currentDate,"h:m.s ap")
+                color:"Black"
+                font.pixelSize:16
+            }
+        }
+
+        Column{
+            id:columnid
+            spacing:25
+            y:rectroot.height/6
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: parent.width/4
+            Column{
+                spacing: 10
+                anchors.left: parent.left
+                anchors.right: parent.right
+                Label {
+
+                    text: "Publisher Id..  "
+                    anchors.left: parent.left
+                    font.pixelSize: 14
+                    font.italic: true
+                    font.bold: true
+                }
+                TextField {
+                    id:usernametxt
+                    width: parent.width
+                    height:parent.height*0.6
+                    focus: true
+                    placeholderText: "MT001"
+                    KeyNavigation.backtab:passwordtxt
+                    Keys.onEnterPressed:passwordtxt
                 }
             }
-
             Column{
-                id:columnid
-                spacing:25
-                y:rectroot.height/6
-                anchors.horizontalCenter: parent.horizontalCenter
-                width: parent.width/4
-               Column{
-                   spacing: 10
-                   anchors.left: parent.left
-                   anchors.right: parent.right
-                   Label {
-                       color: "#565758"
-                       text: "Publisher Id..  "
-                       anchors.left: parent.left
-                       font.pixelSize: 14
-                       font.italic: true
-                       font.bold: true
-                   }
-                   TextField {
-                       id:usernametxt
-                       width: parent.width
-                       height:parent.height*0.6
-                       focus: true
-                       placeholderText: " Pub id..."
-                       KeyNavigation.backtab:passwordtxt
-                       Keys.onEnterPressed:passwordtxt
-
-                       background: Rectangle {
-                                   radius:10
-                                   border.width: 2
-                       }
-                   }
-               }
-               Column{
-                   spacing: 10
-                   anchors.left: parent.left
-                   anchors.right: parent.right
+                spacing: 10
+                anchors.left: parent.left
+                anchors.right: parent.right
                 Label {
-                    color: "#565758"
-                    text: "Publisher's Password "
+
+                    text: "Password "
                     anchors.left: parent.left
                     font.italic: true
                     font.pixelSize: 14
@@ -86,88 +82,50 @@ Item {
                     onAccepted: enterbtn.activeFocus
                     KeyNavigation.backtab: usernametxt
                     Keys.onEnterPressed:enterbtn
-                    background: Rectangle {
-                                radius:10
-                                border.width: 2
-
+                }
+            }
+            RowLayout {
+                id:buttons
+                width: parent.width
+                spacing: 5
+                Button {
+                    id:enterbtn
+                    text: "ENTER "
+                    focus: true
+                    Material.background: Material.primary
+                      width:parent.width/2-10
+                       enabled: activateenterclockbtn()
+                    onClicked: {
+                        masterController.onLogin(usernametxt.text.toLowerCase(),passwordtxt.text.toLowerCase())
+                        passwordtxt.clear()
+                        usernametxt.clear()
                     }
-
+                }
+                Button {
+                    id:clockbtn
+                    text: "CANCEL"
+                    focus: true
+                    enabled: activateenterclockbtn()
+                    width:parent.width/2-10
+                    Material.background: Material.Red
+                    onClicked: {
+                        passwordtxt.clear()
+                        usernametxt.clear()
+                    }
 
                 }
-}
-                RowLayout {
-                    id:buttons
-                    spacing: 5
-                    Button {
-                        id:enterbtn
-                        text: "ENTER "
-                        focus: true
-                        enabled:activateenterclockbtn()
-                        contentItem: Text {
-                            text: enterbtn.text
-                            font: enterbtn.font
-                            opacity: enabled ? 1.0 : 0.3
-                            color: enterbtn.down ? "#17a81a" : "#21be2b"
-                            horizontalAlignment: Text.AlignHCenter
-                            verticalAlignment: Text.AlignVCenter
-                            elide: Text.ElideRight
-                        }
-                        background: Rectangle{
-                            implicitHeight: 30
-                            implicitWidth: columnid.width/2
-                            opacity: enabled ? 1 : 0.7
-                            border.color: enterbtn.down ? "#17a81a" : "#21be2b"
-                            border.width: 1
-                            radius: 4
-                        }
-                        onClicked: {
-
-                           masterController.onLogin(usernametxt.text.toLowerCase(),passwordtxt.text.toLowerCase())
-                            passwordtxt.clear()
-                            usernametxt.clear()
-                        }
-                    }
-                    Button {
-                        id:clockbtn
-                        text: "CANCEL"
-                        focus: true
-                        enabled: activateenterclockbtn()
-                        onClicked: {
-                            passwordtxt.clear()
-                            usernametxt.clear()
-                        }
-                        contentItem: Text {
-                            text: clockbtn.text
-                            font: clockbtn.font
-
-                            opacity: enabled ? 1.0 : 0.7
-                            color: clockbtn.down ? "#17a81a" : "#21be2b"
-                            horizontalAlignment: Text.AlignHCenter
-                            verticalAlignment: Text.AlignVCenter
-                            elide: Text.ElideRight
-                        }
-                        background: Rectangle{
-                            implicitHeight: 30
-                            implicitWidth: columnid.width/2
-                            opacity: enabled ? 1 : 0.3
-                            border.color: clockbtn.down ? "#17a81a" : "#21be2b"
-                            border.width: 1
-                            radius: 4
-                        }
-                    }
-
-}
-}
-}
-
-        function backmainlogin(){
-            mainstackview.replace(mainlogin)
-        }
-        function activateenterclockbtn(){
-            if(passwordtxt.text.length>0&&usernametxt.text.length>0){ return true}
-            else {
-                return false;
             }
         }
+    }
+
+    function backmainlogin(){
+        mainstackview.replace(mainlogin)
+    }
+    function activateenterclockbtn(){
+        if(passwordtxt.text.length>0&&usernametxt.text.length>0){ return true}
+        else {
+            return false;
+        }
+    }
 
 }

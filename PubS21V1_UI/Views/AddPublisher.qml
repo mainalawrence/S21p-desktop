@@ -1,9 +1,9 @@
 import QtQuick 2.0
-import QtQuick.Controls 1.4
-import QtQuick.Controls.Material 2.12
 import QtQuick.Controls 2.5
+import QtQuick.Controls.Material 2.12
 
-Pane {
+Pane{
+    property int txFwidth: 400
     Column{
         spacing:10
         anchors.horizontalCenter:parent.horizontalCenter
@@ -14,15 +14,18 @@ Pane {
                 text:"Pulisher Code"
             }
             TextField{
-                width:200
+                width:txFwidth
+                  placeholderText:"MT001"
             }
         }
         Column{
             Label{
                 text:"First name"
+
             }
             TextField{
-                width:200
+                width:txFwidth
+                placeholderText:"Caleb"
             }
         }
         Column{
@@ -30,7 +33,8 @@ Pane {
                 text:"Last Name"
             }
             TextField{
-                width:200
+                width:txFwidth
+                placeholderText:"Kamau"
             }
         }
         Column{
@@ -38,7 +42,8 @@ Pane {
                 text:"Date of birth"
             }
             TextField{
-                width:200
+                width:txFwidth
+                placeholderText:"1/1/2000"
             }
         }
         Column{
@@ -46,7 +51,8 @@ Pane {
                 text:"Date of baptism"
             }
             TextField{
-                width:200
+                width:txFwidth
+                  placeholderText:"1/1/2010"
             }
         }
         Column{
@@ -54,7 +60,8 @@ Pane {
                 text:"Group Publisher"
             }
             TextField{
-                width:200
+                width:txFwidth
+                placeholderText:""
             }
         }
         Column{
@@ -62,7 +69,8 @@ Pane {
                 text:"Preaching Group"
             }
             TextField{
-                width:200
+                width:txFwidth
+                  placeholderText:"Mathaithi"
             }
         }
         Column{
@@ -70,15 +78,21 @@ Pane {
                 text:"Type Publisher"
             }
             TextField{
-                width:200
+                width:txFwidth
+                  placeholderText:"Elder"
+
             }
         }
         Row{
             Button{
                 text:"Save"
+                width:txFwidth/2
+                 Material.background: Material.Teal
             }
             Button{
                 text:"Cancel"
+                  width:txFwidth/2
+                   Material.background: Material.Red
             }
         }
     }

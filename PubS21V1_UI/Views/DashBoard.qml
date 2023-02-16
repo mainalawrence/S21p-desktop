@@ -1,16 +1,15 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.5
+import QtQuick.Controls.Material 2.12
 
-Page{
+Pane{
     id:dashBoard
-    Frame{
+    Pane{
         anchors.centerIn: parent
         anchors.topMargin:-100
         height:500
         width: maingride.width+50
-        background: Rectangle{
-            color: "white"
-        }
+
         Grid{
             id:maingride
             clip: true

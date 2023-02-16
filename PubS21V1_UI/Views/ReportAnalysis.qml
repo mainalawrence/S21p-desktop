@@ -5,19 +5,18 @@ import QtQuick.Controls 2.5
 
 Pane {
     id:root
-    anchors.fill: parent
+
     Grid{
         id:grid
         anchors{
             left: parent.left
             right: parent.right
             top: parent.top
-            margins: 20
             leftMargin:0.08*parent.width
         }
         columns:3
         spacing:30
-        clip: true
+
         Pane{
             width:0.3*parent.width
             height:350

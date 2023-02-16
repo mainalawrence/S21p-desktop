@@ -4,7 +4,7 @@ import QtQuick.Controls.Material 2.12
 import QtQuick.Controls 2.5
 
 Pane {
-
+  property int txFwidth: 400
     Column{
         spacing:10
         anchors.horizontalCenter:parent.horizontalCenter
@@ -15,7 +15,7 @@ Pane {
                 text:"Pulisher Code"
             }
             TextField{
-                width:200
+                width:txFwidth
             }
         }
         Column{
@@ -23,7 +23,7 @@ Pane {
                 text:"year"
             }
             TextField{
-                width:200
+                width:txFwidth
             }
         }
         Column{
@@ -31,7 +31,7 @@ Pane {
                 text:"Publications"
             }
             TextField{
-                width:200
+                width:txFwidth
             }
         }
         Column{
@@ -39,7 +39,7 @@ Pane {
                 text:"Videos"
             }
             TextField{
-                width:200
+                width:txFwidth
             }
         }
         Column{
@@ -47,7 +47,7 @@ Pane {
                 text:"Hours"
             }
             TextField{
-                width:200
+                width:txFwidth
             }
         }
         Column{
@@ -55,7 +55,7 @@ Pane {
                 text:"Return visits"
             }
             TextField{
-                width:200
+                width:txFwidth
             }
         }
         Column{
@@ -63,7 +63,7 @@ Pane {
                 text:"Studies"
             }
             TextField{
-                width:200
+                width:txFwidth
             }
         }
         Column{
@@ -71,15 +71,20 @@ Pane {
                 text:"Comment"
             }
             TextField{
-                width:200
+                width:txFwidth
             }
         }
         Row{
+            spacing:0
             Button{
                 text:"Send"
+                width:txFwidth/2-10
+                Material.background: Material.Teal
             }
             Button{
                 text:"Cancel"
+                  width:txFwidth/2-10
+                  Material.background: Material.Red
             }
         }
     }

@@ -11,34 +11,37 @@ Item {
         width: 0.2*parent.width
         height: parent.height
         Material.elevation: 6
-
          Column{
             spacing:20
             anchors.horizontalCenter: parent.horizontalCenter
             Button{
                 text: "Home"
+                Material.background:Material.BlueGrey
             }
             Button{
                 text: "View Publishers"
+                  Material.background:Material.BlueGrey
                 onClicked:{
                     settingView.replace(publisherComponent,StackView.Immediate)
                 }
             }
             Button{
                 text: "Add Publishers"
+                  Material.background:Material.BlueGrey
                 onClicked:{
                     settingView.replace(addPublisher,StackView.Immediate)
                 }
             }
             Button{
                 text: "Update Publisher"
+                  Material.background:Material.BlueGrey
                 onClicked:{
                     settingView.replace(updatePublisher,StackView.Immediate)
                 }
             }
         }
     }
-    Rectangle{
+    Pane{
         id:mainWindow
         anchors{
             right: parent.right
@@ -47,11 +50,10 @@ Item {
             left: navigationMenu.right
             leftMargin: 10
         }
-        color: "transparent"
+
         StackView{
             id:settingView
             anchors.fill: parent
-            //            clip: true
             initialItem:publisherComponent
         }
 

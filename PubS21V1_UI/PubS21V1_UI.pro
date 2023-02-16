@@ -33,7 +33,8 @@ QML_IMPORT_PATH =$$PWD
 # Additional import path used to resolve QML modules just for Qt Quick Designer
 QML_DESIGNER_IMPORT_PATH =
 
-#LIBS += -L$$PWD/../../PubS21V1/PubS21V1_UI -llibPubS21V1_LIB
+#LIBS +=-L$$PWD/../../PubS21V1/PubS21V1_UI -llibS21
+
 DISTFILES +=
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -41,9 +42,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 message(L$$PWD)
-unix:!macx:LIBS +=L$$PWD/../../PubS21V1_Output/PubS21V1_LIB -llibPubS21V1_LIB
-#unix:!macx:LIBS += -L$$PWD/../../S21PUB/Desktop/PubS21V1_Output/PubS21V1_LIB -llibPubS21V1_LIB
-
-
-
-
+#unix:!macx:LIBS +=L$$PWD/../../PubS21V1_Output/PubS21V1_LIB -llibPubS21V1_LIB
+#unix:!macx:LIBS +=L /Documents/S21PUB/Desktop/PubS21V1_Output/PubS21V1_LIB

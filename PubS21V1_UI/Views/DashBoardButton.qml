@@ -1,14 +1,13 @@
 import QtQuick 2.0
 import QtQml 2.12
+import QtQuick.Controls.Material 2.12
+import QtQuick.Controls 2.5
 
-
-Rectangle{
+Pane{
     property string title:"Testing";
     id:root
     height: 160
     width: root.height<700 ?370:smallscreensize
-    color:"#1B4166"
-    radius: 4
     Image {
         id: itemimg
         anchors.verticalCenter: parent.verticalCenter

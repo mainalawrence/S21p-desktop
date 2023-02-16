@@ -1,5 +1,5 @@
 <RCC>
     <qresource prefix="/Stylesheet">
-        <file alias="material-ocean.qss">Styles/material-ocean.qss</file>
+        <file alias="material-ocean.qss">Styles/styles.qss</file>
     </qresource>
 </RCC>

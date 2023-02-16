@@ -1,6 +1,9 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.4
-Rectangle {
+import QtQuick.Controls.Material 2.12
+import QtQuick.Controls 2.5
+
+Pane {
     id:root
     anchors.fill: parent
     Grid{
@@ -15,7 +18,7 @@ Rectangle {
         columns:3
         spacing:30
         clip: true
-        Rectangle{
+        Pane{
             width:0.3*parent.width
             height:350
             Text {
@@ -91,12 +94,8 @@ Rectangle {
                     }
                 }
             }
-
-            border.color:"black"
-            radius: 10
-            border.width: 2
         }
-        Rectangle{
+        Pane{
             width:  0.3*parent.width
             height:350
             Text {
@@ -173,11 +172,9 @@ Rectangle {
                 }
             }
 
-            border.color:"black"
-            radius: 10
-            border.width: 2
+
         }
-        Rectangle{
+        Pane{
             width:  0.3*parent.width
             height:350
             Text {
@@ -253,14 +250,12 @@ Rectangle {
                     }
                 }
             }
-            border.color:"black"
-            radius: 10
-            border.width: 2
+
         }
 
 
     }
-    Rectangle{
+    Pane{
         width: 300
         height:500
         anchors{
@@ -276,8 +271,5 @@ Rectangle {
             text: qsTr("Summary")
             anchors.horizontalCenter: parent.horizontalCenter
         }
-        border.color:"black"
-        radius: 10
-        border.width: 2
     }
 }

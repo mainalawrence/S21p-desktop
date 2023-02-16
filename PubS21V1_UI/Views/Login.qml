@@ -10,10 +10,9 @@ Item {
 
     property bool  timerpageS: false
 
-        Rectangle{
+        Pane{
             id:rectroot
             anchors.fill: parent
-            color:"#e7e7e7"
 
             Image {
                 id: myimg

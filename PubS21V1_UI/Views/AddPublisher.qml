@@ -1,9 +1,9 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.4
+import QtQuick.Controls.Material 2.12
+import QtQuick.Controls 2.5
 
-Rectangle {
-    width: parent.width
-    height: parent.height
+Pane {
     Column{
         spacing:10
         anchors.horizontalCenter:parent.horizontalCenter

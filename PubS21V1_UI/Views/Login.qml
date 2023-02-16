@@ -8,13 +8,10 @@ import QtQuick.Controls.Material 2.12
 Item {
     id: name
     anchors.fill: parent
-
-    property bool  timerpageS: false
-
+    property bool timerpageS: false
     Pane{
         id:rectroot
         anchors.fill: parent
-
         Image {
             id: myimg
             //                source: "../images/hotel.jpeng"
@@ -26,7 +23,7 @@ Item {
                 anchors.topMargin: 40
                 anchors.top: parent.top
                 anchors.rightMargin: 20
-//                text:Qt.formatTime(id_root.currentDate,"h:m.s ap")
+                //                text:Qt.formatTime(id_root.currentDate,"h:m.s ap")
                 color:"Black"
                 font.pixelSize:16
             }
@@ -43,7 +40,6 @@ Item {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 Label {
-
                     text: "Publisher Id..  "
                     anchors.left: parent.left
                     font.pixelSize: 14
@@ -65,7 +61,6 @@ Item {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 Label {
-
                     text: "Password "
                     anchors.left: parent.left
                     font.italic: true
@@ -87,15 +82,16 @@ Item {
             RowLayout {
                 id:buttons
                 width: parent.width
-                spacing: 5
+                spacing:1
                 Button {
                     id:enterbtn
                     text: "ENTER "
                     focus: true
-                    Material.background: Material.primary
-                      width:parent.width/2-10
-                       enabled: activateenterclockbtn()
+                    Material.background: Material.Teal
+                    width:buttons.width/2-10
+                    enabled: activateenterclockbtn()
                     onClicked: {
+                        console.log(buttons.width)
                         masterController.onLogin(usernametxt.text.toLowerCase(),passwordtxt.text.toLowerCase())
                         passwordtxt.clear()
                         usernametxt.clear()
@@ -105,14 +101,14 @@ Item {
                     id:clockbtn
                     text: "CANCEL"
                     focus: true
+                    width:buttons.width/2-10
                     enabled: activateenterclockbtn()
-                    width:parent.width/2-10
+
                     Material.background: Material.Red
                     onClicked: {
                         passwordtxt.clear()
                         usernametxt.clear()
                     }
-
                 }
             }
         }
@@ -122,7 +118,7 @@ Item {
         mainstackview.replace(mainlogin)
     }
     function activateenterclockbtn(){
-        if(passwordtxt.text.length>0&&usernametxt.text.length>0){ return true}
+        if(passwordtxt.text.length>3&&usernametxt.text.length>3){ return true}
         else {
             return false;
         }

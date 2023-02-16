@@ -10,26 +10,26 @@ Pane{
     Row{
         anchors.fill: parent
         spacing: 10
-        Pane{
+        Pane {
             height: parent.height
             width: parent.width*0.5
-
-          ListView{
-              anchors.horizontalCenter:parent.horizontalCenter
-              height: root.height
-              model:[1,2,3,4,5,5]
-              delegate: Rectangle{
-                  width: parent.width
-                  height: 20
-                  radius: 5
-                  Text {
-                      id: name
-                      text: qsTr(modelData.toString())
-                      color: "black"
-                  }
-              }
-
-          }
+            Material.elevation: 6
+            ListView{
+                spacing: 20
+                width: parent.width
+                height: parent.height
+                model:["Mathaithi","Kiamabara","Town","Congration"]
+                delegate: Rectangle{
+                    width: parent.width
+                    height:50
+                    radius: 5
+                    Text {
+                        id: name
+                         anchors.centerIn: parent
+                        text: qsTr(modelData)
+                    }
+                }
+            }
         }
         Pane{
             height: parent.height

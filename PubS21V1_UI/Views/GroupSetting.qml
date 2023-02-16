@@ -11,20 +11,30 @@ Pane{
        height: parent.height
        width: parent.width*0.5
 
-        ListView{
-            anchors.horizontalCenter: parent.horizontalCenter
-            height: parent.height
-            model:["Mathaithi","Kiamabara","Town","Congration"]
-            delegate: Rectangle{
-                width: parent.width
-                height: 20
-                radius: 5
-                Text {
-                    id: name
-                    text: qsTr(modelData)
-                }
-            }
-        }
+       Pane {
+           anchors.horizontalCenter: parent.horizontalCenter
+           height: parent.height
+           width: parent.width/1.2
+           Material.elevation: 6
+           ListView{
+               spacing: 20
+               width: parent.width
+               height: parent.height
+               model:["Mathaithi","Kiamabara","Town","Congration"]
+               delegate: Rectangle{
+                   width: parent.width
+                   height:50
+                   radius: 5
+                   Text {
+                       id: name
+                        anchors.centerIn: parent
+                       text: qsTr(modelData)
+                   }
+               }
+           }
+       }
+
+
     }
     Pane{
         id:addGroup
@@ -50,10 +60,12 @@ Pane{
                 spacing: 35
                 Button{
                     text:"Add"
+                    Material.background: Material.Teal
 
                 }
                 Button{
-                    text:"Cancel"              
+                    text:"Cancel"
+                      Material.background: Material.Red
                 }
             }
         }

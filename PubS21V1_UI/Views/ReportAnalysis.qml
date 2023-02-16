@@ -5,7 +5,6 @@ import QtQuick.Controls 2.5
 
 Pane {
     id:root
-
     Grid{
         id:grid
         anchors{
@@ -16,7 +15,6 @@ Pane {
         }
         columns:3
         spacing:30
-
         Pane{
             width:0.3*parent.width
             height:350
@@ -40,7 +38,6 @@ Pane {
                 Column{
                     Label{
                         text:"year"
-
                     }
                     TextField{
                         width:200

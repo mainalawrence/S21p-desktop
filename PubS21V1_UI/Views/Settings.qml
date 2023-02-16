@@ -10,31 +10,39 @@ Item {
         id:navigationMenu
         width: 0.2*parent.width
         height: parent.height
+          Material.elevation: 10
 
        Column{
            spacing:20
         anchors.horizontalCenter: parent.horizontalCenter
-
+        Button{
+            text: "Home"
+            Material.background:Material.BlueGrey
+        }
            Button{
                text: "Group Setting"
+                 Material.background:Material.BlueGrey
                onClicked:{
                    settingView.replace(groupsetting,StackView.Immediate)
                }
            }
            Button{
                text: "Download Setting"
+                 Material.background:Material.BlueGrey
                onClicked:{
                    settingView.replace(downloadSetting,StackView.Immediate)
                }
            }
            Button{
                text: "Theme Setting"
+                 Material.background:Material.BlueGrey
                onClicked:{
                    settingView.replace(themeSetting,StackView.Immediate)
                }
            }
            Button{
                text: "Database Setting"
+                 Material.background:Material.BlueGrey
                onClicked:{
                    settingView.replace(databaseSetting,StackView.Immediate)
                }

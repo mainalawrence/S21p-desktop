@@ -4,51 +4,51 @@ import QtQuick.Controls 2.5
 import QtQml 2.12
 Pane{
 
-    Grid{
-      columns:3
-      spacing:2
-      anchors.fill: parent
-      Pane {
-          width: 300
-          height: 300
-          Material.elevation: 6
-          Label {
-              text: qsTr("I'm a card!")
-              anchors.centerIn: parent
-          }
-          Material.background:Material.Light
-      }
-      Pane {
-          width: 300
-          height: 300
-          Material.elevation: 6
-          Label {
-              text: qsTr("I'm a card!")
-              anchors.centerIn: parent
-          }
-          Material.background:Material.Light
-      }
-      Pane {
-          width: 300
-          height: 300
-          Material.elevation: 6
-          Label {
-              text: qsTr("I'm a card!")
-              anchors.centerIn: parent
-          }
-          Material.background:Material.Light
-      }
-      Pane {
-          width: 300
-          height: 300
-          Material.elevation: 6
-          Label {
-              text: qsTr("I'm a card!")
-              anchors.centerIn: parent
-          }
-          Material.background:Material.Light
-      }
+    GridView{
+        anchors.fill: parent
+        cellHeight: 310
+        cellWidth: 310
+
+
+        model: [{name:"Lawrence Maina",age:"25",BOD:"16/04/2017",type:["Publisher","Elder","Secretary"]},
+        {name:"Lawrence Maina",age:"25",BOD:"16/04/2017",type:["Publisher","Elder","Secretary"]},
+            {name:"Lawrence Maina",age:"25",BOD:"16/04/2017",type:["Publisher","Elder","Secretary"]},
+            {name:"Lawrence Maina",age:"25",BOD:"16/04/2017",type:["Publisher","Elder","Secretary"]}
+        ]
+        delegate:delegate
     }
+    Component{
+        id:delegate
+        Pane {
+            width: 300
+            height: 300
+            Material.elevation: 6
+            Material.background:Material.Light
+            Column{
+                spacing: 2
+                Row{
+                    spacing: 60
+                    Label {
+                        text: qsTr("Name: "+modelData.name)
+                    }
+                    Label {
+                        text: qsTr("Age :"+modelData.age)
+                    }
+                }
+                Row{
+                    Label {
+                        text:"Baptized: "+modelData.BOD
+                    }
+
+                }
+                Label {
+                    text:"Type: "+modelData.type
+                }
+
+            }
+        }
+    }
+
 }
 
 

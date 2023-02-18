@@ -2,9 +2,6 @@ import QtQuick 2.0
 import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.12
-
-
-
 Item {
     id: name
     anchors.fill: parent
@@ -14,7 +11,7 @@ Item {
         anchors.fill: parent
         Image {
             id: myimg
-            //                source: "../images/hotel.jpeng"
+            //source: "../images/hotel.jpeng"
             anchors.fill: parent
             height: 200
             width:rectroot.width/2+10

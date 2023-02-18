@@ -16,7 +16,7 @@ ApplicationWindow {
     readonly property color darkBackgroundColor: "#161616"
     readonly property color darkbluegroundColor: "#181D31"
     //    title: masterController.ui_message
-    Material.theme: Material.Light
+    Material.theme: Material.Dark
     Material.accent: Material.Purple
 
     // QML_IMPORT_PATH
@@ -33,8 +33,8 @@ ApplicationWindow {
     StackView{
         id:mainview
         anchors.fill: parent
-//        initialItem: Qt.resolvedUrl("DashBoard.qml")
-        initialItem: Qt.resolvedUrl("Login.qml")
+        initialItem: Qt.resolvedUrl("Publishers.qml")
+//        initialItem: Qt.resolvedUrl("Login.qml")
     }
 
 }

@@ -11,10 +11,10 @@ Pane {
             left: parent.left
             right: parent.right
             top: parent.top
-            leftMargin:0.005*parent.width
+            leftMargin:0.02*parent.width
         }
         columns:4
-        spacing:20
+        spacing:45
         Pane{
             width:0.2*parent.width
             height:450

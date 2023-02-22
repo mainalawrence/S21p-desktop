@@ -11,16 +11,16 @@ Pane {
             left: parent.left
             right: parent.right
             top: parent.top
-            leftMargin:0.08*parent.width
+            leftMargin:0.005*parent.width
         }
-        columns:3
-        spacing:30
+        columns:4
+        spacing:20
         Pane{
-            width:0.3*parent.width
-            height:350
-            Text {
+            width:0.2*parent.width
+            height:450
+            Label {
                 id: name3
-                text: qsTr("PUBLISHERS")
+                text: qsTr("<u>PUBLISHERS</u>")
                 anchors.horizontalCenter: parent.horizontalCenter
             }
             Column{
@@ -28,16 +28,7 @@ Pane {
                 spacing:1
                 Column{
                     Label{
-                        text:"Pulisher Code"
-                    }
-                    TextField{
-                        width:200
-                        readOnly: true
-                    }
-                }
-                Column{
-                    Label{
-                        text:"year"
+                        text:"Month/Year"
                     }
                     TextField{
                         width:200
@@ -92,29 +83,87 @@ Pane {
             }
         }
         Pane{
-            width:  0.3*parent.width
-            height:350
-            Text {
+            width:0.2*parent.width
+            height:450
+            Label {
+                id: aux
+                text: qsTr("<u>Aux</u>")
+                anchors.horizontalCenter: parent.horizontalCenter
+            }
+            Column{
+                anchors.centerIn: parent
+                spacing:1
+                Column{
+                    Label{
+                        text:"Month/Year"
+                    }
+                    TextField{
+                        width:200
+                        readOnly: true
+                    }
+                }
+                Column{
+                    Label{
+                        text:"Publications"
+                    }
+                    TextField{
+                        width:200
+                        readOnly: true
+                    }
+                }
+                Column{
+                    Label{
+                        text:"Videos"
+                    }
+                    TextField{
+                        width:200
+                        readOnly: true
+                    }
+                }
+                Column{
+                    Label{
+                        text:"Hours"
+                    }
+                    TextField{
+                        width:200
+                        readOnly: true
+                    }
+                }
+                Column{
+                    Label{
+                        text:"Return visits"
+                    }
+                    TextField{
+                        width:200
+                        readOnly: true
+                    }
+                }
+                Column{
+                    Label{
+                        text:"Studies"
+                    }
+                    TextField{
+                        width:200
+                        readOnly: true
+                    }
+                }
+            }
+        }
+        Pane{
+            width:  0.2*parent.width
+            height:450
+            Label {
                 id: namee3
-                text: qsTr("REGULAR")
+                text: qsTr("<u>REGULAR</u>")
                 anchors.horizontalCenter: parent.horizontalCenter
             }
             Column{
                 anchors.centerIn: parent
                 spacing:1
-                Column{
-                    Label{
-                        text:"Pulisher Code"
-                    }
-                    TextField{
-                        width:200
-                        readOnly: true
-                    }
-                }
-                Column{
-                    Label{
-                        text:"year"
 
+                Column{
+                    Label{
+                        text:"Month/Year"
                     }
                     TextField{
                         width:200
@@ -171,28 +220,20 @@ Pane {
 
         }
         Pane{
-            width:  0.3*parent.width
-            height:350
-            Text {
+            width:  0.2*parent.width
+            height:450
+            Label {
                 id: w
-                text: qsTr("SPECIAL/MISSIONARY")
+                text: qsTr("<u>SPECIAL/MISSIONARY</u>")
                 anchors.horizontalCenter: parent.horizontalCenter
             }
             Column{
                 anchors.centerIn: parent
                 spacing:1
+
                 Column{
                     Label{
-                        text:"Pulisher Code"
-                    }
-                    TextField{
-                        width:200
-                        readOnly: true
-                    }
-                }
-                Column{
-                    Label{
-                        text:"year"
+                        text:"Month/Year"
 
                     }
                     TextField{
@@ -248,12 +289,10 @@ Pane {
             }
 
         }
-
-
     }
     Pane{
         width: 300
-        height:500
+        height:300
         anchors{
             left: parent.left
             right: parent.right
@@ -261,11 +300,72 @@ Pane {
             top: grid.bottom
             margins: 20
         }
-
-        Text {
-            id: summary
-            text: qsTr("Summary")
+        Label {
+            text: qsTr("<u>   Summary  </u>")
             anchors.horizontalCenter: parent.horizontalCenter
+        }
+        Row{
+            anchors.centerIn: parent
+            spacing:1
+
+            Column{
+                Label{
+                    text:"Month/Year"
+                }
+                TextField{
+                    width:150
+                    readOnly: true
+                }
+            }
+            Column{
+                Label{
+                    text:"Publications"
+
+                }
+                TextField{
+                    width:150
+                    readOnly: true
+                }
+            }
+            Column{
+                Label{
+                    text:"Videos"
+
+                }
+                TextField{
+                    width:150
+                    readOnly: true
+                }
+            }
+            Column{
+                Label{
+                    text:"Hours"
+                }
+                TextField{
+                    width:150
+                    readOnly: true
+                }
+            }
+            Column{
+                Label{
+                    text:"RVs"
+                }
+                TextField{
+                    width:150
+                    readOnly: true
+                }
+            }
+            Column{
+                Label{
+                    text:"Studies"
+                }
+                TextField{
+                    width:150
+                    readOnly: true
+                }
+            }
+
+
         }
     }
 }

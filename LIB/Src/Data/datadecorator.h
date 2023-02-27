@@ -5,7 +5,7 @@
 #include<QJsonObject>
 #include<QJsonValue>
 #include<QJsonDocument>
-#include"../PubS21V1_LIB_global.h"
+#include<Lib_global.h>
 
 
 namespace Data {

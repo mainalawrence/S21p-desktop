@@ -1,6 +1,6 @@
 #ifndef MAIN_DATABASECONTROLLER_H
 #define MAIN_DATABASECONTROLLER_H
-#include "../PubS21V1_LIB_global.h"
+#include <Lib_global.h>
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QList>

@@ -7,8 +7,8 @@
 #include<QJsonValue>
 #include<QJsonDocument>
 #include<QString>
-#include"../PubS21V1_LIB_global.h"
-#include "./datadecorator.h"
+#include<Lib_global.h>
+#include <Data/datadecorator.h>
 
 
 namespace Data {

@@ -87,15 +87,6 @@ NavigationController *MasterController::navigationController()const
 
 
 
-
-
-void MasterController::gettimePoint()
-{
-
-}
-
-
-
 void MasterController::onLogin(QString use,QString pass)
 {
     m_username="";
@@ -114,57 +105,6 @@ void MasterController::onLogin(QString use,QString pass)
     }
 }
 
-void MasterController::onLogout()
-{
-    m_username="";
-    Role="";
-
-    this->navigationController()->goCreateLoginView();
-}
-
-void MasterController::onBClockclicked()
-{
-    implimentation->navigation->goCreateLoginView();
-}
-
-
-void MasterController::onGetOrderNumber()
-{
-    getorderNum();
-}
-
-void MasterController::onSearchBarReturn(QString Orederid)//returns
-{
-    //  need to convert from json document ot vector;
-    auto data= this->implimentation->database->readTable_Id("bar_Returns",Orederid);
-    //implimentation->BarReturnReport->populate();
-
-}
-
-void MasterController::onSearchBarSales(QString Date)
-{
-    auto data=implimentation->database->readTable_Date("bar_sales",Date);
-    //implimentation->BarSaleReport->setSales(data);
-}
-
-void MasterController::onSearchRestaurantSales(QString Date)
-{
-    auto data= this->implimentation->database->readTable_Date("restaurant_orders",Date);
-    // implimentation->RestReturnReport->populate();
-}
-
-void MasterController::onSearchRestaurantReturn(QString Orederid)//returtn
-{
-    auto data= this->implimentation->database->readTable_Id("restaurant_Returns",Orederid);
-    // implimentation->RestReturnReport->populate();
-
-}
-
-
-void MasterController::updateordervier()
-{
-
-}
 
 
 

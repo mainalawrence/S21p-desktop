@@ -11,9 +11,9 @@
 #include<QSqlDatabase>
 #include<QDateTime>
 #include<QVariant>
-#include "../PubS21V1_LIB_global.h"
+#include <Lib_global.h>
 #include<QVector>
-#include "./Main_Databasecontroller.h"
+#include <Controller/Main_Databasecontroller.h>
 #include<QFile>
 
 namespace Controller

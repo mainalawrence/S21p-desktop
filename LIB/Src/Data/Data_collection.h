@@ -1,7 +1,7 @@
 #ifndef DATA_COLLECTION_H
 #define DATA_COLLECTION_H
 #include<QObject>
-#include"../PubS21V1_LIB_global.h"
+#include<Lib_global.h>
 #include<QJsonArray>
 #include<QJsonObject>
 #include<QJsonValue>

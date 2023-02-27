@@ -5,8 +5,8 @@
 #include<QJsonObject>
 #include<QJsonValue>
 #include<QJsonDocument>
-#include"../PubS21V1_LIB_global.h"
-#include "./datadecorator.h"
+#include<Lib_global.h>
+#include <Data/datadecorator.h>
 
 namespace Data {
 class LIB_EXPORT Int_data : public DataDecorator

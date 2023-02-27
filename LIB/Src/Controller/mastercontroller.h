@@ -8,12 +8,12 @@
 #include<QCryptographicHash>
 #include<QString>
 #include<QScopedPointer>
-#include"navigation-controller.h"
-#include "./database_controller.h"
+#include <Controller/navigation-controller.h>
+#include <Controller/database_controller.h>
 
 
 //#include<Printer/printecontrol.h>
-#include "../PubS21V1_LIB_global.h"
+#include "../Lib_global.h"
 
 class Returns;
 class Users;
@@ -48,8 +48,8 @@ public:
 private:
 
     void userssaved();
-    Q_INVOKABLE void gettimePoint();
-    Q_INVOKABLE void getorders();
+
+
     QString getOrderNumber() const;
     void setOrderNumber(const QString &OrderNumber);
 
@@ -69,48 +69,9 @@ signals:
     void OrdrestnumChanged();
     void Clockinchanged();
 public slots:
-    Q_INVOKABLE void onLoginsystemsales();
     void onLogin(QString,QString);
-    void onLogout();
-    void onClockin(QString,QString);
-    void onCreateuser();
-    void onUpdateUser();
-    void onCreateStock();
-    void onneworder();
-    void onSaleSaved();
-    void onReturnorder();
-    void onCreateclock();
-    void onClockout();
-    void onBClockclicked();
-    void onLoadingReport();
-    void onItemdelete(QString id,int index);
-    void onDroprow(QString tablename,QString id,int index);
-    void onDeletPosuser(QString id,int index);
-    void onUpdateuser(QString uid);
-    void onSettings();
-    void onGetOrderNumber();
-    //the report slots
-    void onSearchBarReturn(QString Orederid);
-    void onSearchBarSales(QString Date);
-    void onSearchRestaurantSales(QString Date);
-    void onSearchRestaurantReturn(QString Orederid);
-    //the Pos user slots
-    void onViewUserclock(QString userId);
-    void updateordervier();
-    void onUpdatestockusers();
-    void onCashierviewsales(QString userId);
-    void onLoadCashierView();
 
-    // the naccw
-    void onReportViewOpen();
-    void onReportviewclosed();
-    void onRestaurantSalesbtn(QString u_id);
-    void onRestaurantReturnbtn(QString u_id);
-    void onBarSalesbtn(QString u_id);
-    void onBarreturnsbtn(QString u_id);
-    //the clock view sales
-    void   onReportViewClockOpen();
-    void   onReportviewClockclosed();
+
 private:
 
     void PopulateRestSalemodel();

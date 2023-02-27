@@ -1,21 +1,15 @@
 QT -= gui
+
 QT  +=sql network qml
 QT += printsupport
 
-
 TEMPLATE = lib
-
 DEFINES += LIB_LIBRARY
-
-CONFIG += c++20
-
+TARGET +=s21
+CONFIG += c++11
+DEFINES += QT_DEPRECATED_WARNINGS
 QMAKE_CXXFLAGS_WARN_ON = -Wall -Wno-unused-parameter
 
-# You can make your code fail to compile if it uses deprecated APIs.
-# In order to do so, uncomment the following line.
-#DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
-DEFINES += LIB_LIBRARY
-TARGET =S21
 SOURCES += \
     Src/Controller/database_controller.cpp \
     Src/Controller/mastercontroller.cpp \
@@ -41,10 +35,10 @@ HEADERS += \
     Src/Data/int_data.h \
     Src/Data/jsonarray_data.h \
     Src/Data/string_data.h \
-    Src/LIB_global.h \
-    Src/Model/View/report.h \
-    Src/PubS21V1_LIB_global.h
+    Src/Lib_global.h \
+    Src/Model/View/report.h
 
+INCLUDEPATH +=Src
 # Default rules for deployment.
 unix {
     target.path = /usr/lib

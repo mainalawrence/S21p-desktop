@@ -2,7 +2,7 @@
 #define REPORT_H
 
 #include <QAbstractTableModel>
-#include "../../PubS21V1_LIB_global.h"
+#include<Lib_global.h>
 #include<QJsonDocument>
 #include <QJsonObject>
 #include <QJsonDocument>

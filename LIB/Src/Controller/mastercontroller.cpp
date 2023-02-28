@@ -23,7 +23,7 @@ MasterController::MasterController(QObject *parent, Database_controller *maincon
     QObject(parent)
 {
     implimentation.reset(new Implimentation(this,maincontroler));
-    getorderNum();
+
 
 
 
@@ -48,7 +48,7 @@ const QString MasterController::userRole() const
 }
 const QString MasterController::message() const
 {
-    return "This is just for  testing..........";
+    return "KARATINA S21 SYSTEM";
 
 }
 
@@ -116,8 +116,7 @@ void MasterController::onLogin(QString use,QString pass)
 void MasterController::getorderNum()
 {
 
-    m_ordbarnum=implimentation->database->getorderNumber("bar_orders");
-    m_ordrestNum=implimentation->database->getorderNumber("restaurant_orders");
+
 }
 
 void MasterController::settheclock()

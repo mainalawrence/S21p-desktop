@@ -14,10 +14,11 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
     app.setWindowIcon(QIcon( QPixmap::fromImage(icon)));
 
+
+    QQmlApplicationEngine engine;
     qmlRegisterType<Controller::MasterController>("Lib",1,0,"Mastercontroller");
     qmlRegisterType<Controller::NavigationController>("Lib", 1, 0,"NavigationController");
 
-    QQmlApplicationEngine engine;
     QQuickStyle::setStyle("Material");
     engine.load(QUrl(QStringLiteral("qrc:/Views/main.qml")));
     return app.exec();

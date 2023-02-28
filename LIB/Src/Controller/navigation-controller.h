@@ -22,6 +22,7 @@ signals:
     void goCreatePublishersView();
     void goCreateLoginoutView();
     void goCreateDashBoardView();
+    void gooCreateLoginView();
 
 };
 }

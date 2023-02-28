@@ -13,13 +13,9 @@
 
 
 //#include<Printer/printecontrol.h>
-#include "../Lib_global.h"
+#include <Lib_global.h>
 
-class Returns;
-class Users;
-class Orderdisp;
-class Tables;
-class itemView;
+
 namespace Controller {
 
 class LIB_EXPORT MasterController : public QObject
@@ -28,7 +24,6 @@ class LIB_EXPORT MasterController : public QObject
 
     Q_PROPERTY(QString ui_message READ message NOTIFY textChanged)
     Q_PROPERTY(Controller::NavigationController* ui_navigationController READ navigationController CONSTANT)
-
 public:
     explicit MasterController(QObject *parent = nullptr,Database_controller *maincontroler=nullptr);
     ~MasterController();
@@ -43,12 +38,9 @@ public:
   Q_INVOKABLE void sETOrderCategory(QString category);
     NavigationController *navigationController()const;
 
-
-
 private:
 
     void userssaved();
-
 
     QString getOrderNumber() const;
     void setOrderNumber(const QString &OrderNumber);

@@ -17,6 +17,9 @@ Item {
             Button{
                 text: "Home"
                 Material.background:Material.BlueGrey
+                onClicked: {
+                    masterController.ui_navigationController.goCreateDashBoardView()
+                }
             }
             Button{
                 text: "View Publishers"

@@ -44,7 +44,7 @@ Pane{
                 MouseArea{
                     anchors.fill: parent
                     onClicked: {
-//                        masterController.ui_navigationController.goCreateReportView()
+                        masterController.ui_navigationController.goCreateReportView()
                     }
                 }
             }
@@ -75,7 +75,7 @@ Pane{
                 MouseArea{
                     anchors.fill: parent
                     onClicked: {
-//                        masterController.ui_navigationController.goCreateCashierView()
+                       masterController.ui_navigationController.goCreateReportView()
                     }
                 }
             }
@@ -106,7 +106,7 @@ Pane{
                 MouseArea{
                     anchors.fill: parent
                     onClicked: {
-//                        masterController.ui_navigationController.goCreateCashierView()
+                        masterController.ui_navigationController.goCreatePublishersView()
                     }
                 }
             }
@@ -140,7 +140,7 @@ Pane{
                 MouseArea{
                     anchors.fill: parent
                     onClicked: {
-                        masterController.ui_navigationController.goCreateSettingsView()
+                        masterController.ui_navigationController.goCreateSettingView()
                     }
                 }
             }
@@ -171,7 +171,7 @@ Pane{
                 MouseArea{
                     anchors.fill: parent
                     onClicked: {
-                        Qt.quit()
+                        masterController.ui_navigationController.gooCreateLoginView()
                     }
                 }
             }

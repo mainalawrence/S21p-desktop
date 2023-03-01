@@ -8,7 +8,6 @@
 
 namespace DATABASE {
 
-
 class LIB_EXPORT Login :public QObject
 {
     Q_OBJECT

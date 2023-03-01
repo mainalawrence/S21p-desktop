@@ -10,7 +10,7 @@ bool Login::onLogin(QString pubcode, QString pubPassword)
         QStringList data;
         data.clear();
         QSqlQuery query(this->mInstance->GetDatabaseInstance());
-        QString sql="SELECT * FROM publishers WHERE username=:username AND password=:password;";
+        QString sql="SELECT * FROM publishers WHERE code=:username AND password=:password;";
         query.exec(sql);
 
         return true;

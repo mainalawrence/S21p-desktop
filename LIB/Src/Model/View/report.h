@@ -45,7 +45,6 @@ private:
     QVariantList finalJson;
     QStringList mheaders ={ "code","year","Month","Publications","Videos","Hours","ReturnVisits","Studies", "Comment"};
     QStringList mdata;
-
 };
 
 #endif // REPORT_H

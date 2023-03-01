@@ -6,7 +6,7 @@ QT += printsupport
 TEMPLATE = lib
 DEFINES += LIB_LIBRARY
 TARGET +=s21
-CONFIG += c++11
+CONFIG += c++14
 DEFINES += QT_DEPRECATED_WARNINGS
 QMAKE_CXXFLAGS_WARN_ON = -Wall -Wno-unused-parameter
 
@@ -21,7 +21,10 @@ SOURCES += \
     Src/Data/jsonarray_data.cpp \
     Src/Data/string_data.cpp \
     Src/Database/databaseinstance.cpp \
+    Src/Database/groups.cpp \
     Src/Database/login.cpp \
+    Src/Database/publisher.cpp \
+   Src/Database/dbreport.cpp \
     Src/Model/View/report.cpp
 
 HEADERS += \
@@ -38,7 +41,10 @@ HEADERS += \
     Src/Data/jsonarray_data.h \
     Src/Data/string_data.h \
     Src/Database/databaseinstance.h \
+    Src/Database/groups.h \
     Src/Database/login.h \
+    Src/Database/publisher.h \
+    Src/Database/dbreport.h \
     Src/Lib_global.h \
     Src/Model/View/report.h
 

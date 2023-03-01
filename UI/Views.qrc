@@ -21,6 +21,6 @@
         <file alias="PublisherComponent.qml">Views/PublisherComponent.qml</file>
         <file alias="UpdatePublisher.qml">Views/UpdatePublisher.qml</file>
         <file alias="GroupSetting.qml">Views/GroupSetting.qml</file>
+         <file alias="DatePicker.qml">Views/DatePicker.qml</file>
     </qresource>
-
 </RCC>

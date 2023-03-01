@@ -5,6 +5,7 @@
 #include<QIcon>
 #include<Controller/mastercontroller.h>
 #include<Controller/navigation-controller.h>
+#include<Controller/database_controller.h>
 
 int main(int argc, char *argv[])
 {
@@ -18,6 +19,7 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     qmlRegisterType<Controller::MasterController>("Lib",1,0,"Mastercontroller");
     qmlRegisterType<Controller::NavigationController>("Lib", 1, 0,"NavigationController");
+//    qmlRegisterType<Controller::Database_controller>("Lib", 1, 0,"DabaseController");
 
     QQuickStyle::setStyle("Material");
     engine.load(QUrl(QStringLiteral("qrc:/Views/main.qml")));

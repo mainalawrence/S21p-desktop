@@ -20,9 +20,11 @@ Pane {
         }
         Column{
             Label{
-                text:"year"
+                text:"Month"
             }
-            TextField{
+            ComboBox{
+                model:['January', 'February', 'March', 'April', 'May', 'June',
+                    'July', 'August', 'September', 'October', 'November', 'December']
                 width:txFwidth
             }
         }

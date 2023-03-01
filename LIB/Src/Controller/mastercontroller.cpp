@@ -1,8 +1,7 @@
 #include "mastercontroller.h"
 #include<QDebug>
+
 namespace Controller {
-
-
 class MasterController::Implimentation
 {
 public:
@@ -10,73 +9,36 @@ public:
         :masterC(_masterc),database(_maindatabaec)
     {
         navigation=new NavigationController(masterC);
-
+        database=new Database_controller(masterC);
     }
     NavigationController *navigation{nullptr};
     MasterController *masterC{nullptr};
-
-    Database_controller *database{nullptr};
-
+    Database_controller * database={nullptr};
 
 };
+
 MasterController::MasterController(QObject *parent, Database_controller *maincontroler) :
     QObject(parent)
 {
     implimentation.reset(new Implimentation(this,maincontroler));
 
-
-
-
-
 }
 MasterController::~MasterController()
 {
-
 
 }
 
 const QString MasterController::username() const
 {
     return m_username;
-
 }
 
-const QString MasterController::userRole() const
-{
-    return Role;
-
-}
 const QString MasterController::message() const
 {
     return "KARATINA S21 SYSTEM";
 
 }
 
-const QString MasterController::Userid() const
-{
-    return userid;
-}
-
-const QString MasterController::clockin() const
-{
-    return m_Clockin;
-}
-
-const QString MasterController::OrderCategory() const
-{
-    return m_OrderCategory;
-}
-
-const QString MasterController::Category() const
-{
-    return m_Category;
-}
-
-void MasterController::sETOrderCategory(QString category)
-{
-    m_OrderCategory.clear();
-    m_OrderCategory=category;
-}
 
 NavigationController *MasterController::navigationController()const
 {
@@ -84,112 +46,8 @@ NavigationController *MasterController::navigationController()const
 
 }
 
-
-
-
-void MasterController::onLogin(QString use,QString pass)
+Database_controller *MasterController::dabaseController() const
 {
-    m_username="";
-    Role="";
-    auto ress= this->implimentation->database->logincheck(use,pass);
-    if(!ress.isEmpty()){
-        m_username=ress.at(1);
-        Role= ress.at(2).toLower();
-        userid=ress.at(0);
-
-    }
-
-    else {
-        qDebug()<<"wrong password or username";
-
-    }
-}
-
-
-
-
-
-
-
-
-
-void MasterController::getorderNum()
-{
-
-
-}
-
-void MasterController::settheclock()
-{
-    m_Clockin=implimentation->database->readclock(userid+QDate::currentDate().toString("MMMMdyyyy"));
-
-}
-
-void MasterController::Readsettings()
-{
-    QJsonDocument data;
-    QFile file("settings.txt");
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-        return;
-    while (!file.atEnd()) {
-        data =QJsonDocument::fromJson(file.readAll());
-    }
-    m_Category=data["AppCategorly"].toString();
-    BusinessName=data["BusinessName"].toString();
-}
-
-
-QString MasterController::getClockin() const
-{
-    return m_Clockin;
-}
-
-void MasterController::setClockin(const QString &Clockin)
-{
-    m_Clockin = Clockin;
-}
-
-
-
-
-QString MasterController::getOrdrestNum() const
-{
-    return m_ordrestNum;
-}
-
-void MasterController::setOrdrestNum(const QString &ordrestNum)
-{
-    m_ordrestNum = ordrestNum;
-}
-
-QString MasterController::getOrdbarnum() const
-{
-    return m_ordbarnum;
-}
-
-void MasterController::setOrdbarnum(const QString &ordbarnum)
-{
-    m_ordbarnum = ordbarnum;
-}
-
-QString MasterController::getOrderNumber() const
-{
-    return m_OrderNumber;
-}
-
-void MasterController::setOrderNumber(const QString &OrderNumber)
-{
-    m_OrderNumber = OrderNumber;
-}
-
-
-
-void MasterController::PopulateWaiterSalemodel(QString id)
-{
-Q_UNUSED(id)
-}
-void MasterController::PopulateWaiterReturnmodel()
-{
-
+    return this->implimentation->database;
 }
 }

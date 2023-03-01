@@ -20,6 +20,8 @@ SOURCES += \
     Src/Data/int_data.cpp \
     Src/Data/jsonarray_data.cpp \
     Src/Data/string_data.cpp \
+    Src/Database/databaseinstance.cpp \
+    Src/Database/login.cpp \
     Src/Model/View/report.cpp
 
 HEADERS += \
@@ -35,6 +37,8 @@ HEADERS += \
     Src/Data/int_data.h \
     Src/Data/jsonarray_data.h \
     Src/Data/string_data.h \
+    Src/Database/databaseinstance.h \
+    Src/Database/login.h \
     Src/Lib_global.h \
     Src/Model/View/report.h
 

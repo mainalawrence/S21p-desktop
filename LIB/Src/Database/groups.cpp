@@ -14,10 +14,7 @@ bool Groups::onCreateGroup(QJsonObject json)
 
 QJsonArray Groups::onGetGroups()
 {
-    QJsonArray data;
-    auto doc=QJsonDocument::fromJson(mInstance->readTable(mTabeName));
-    qDebug()<<doc.object();
-    return data;
+    return mInstance->readTable(mTabeName);
 }
 QJsonObject Groups::onGetGroup(QString id)
 {

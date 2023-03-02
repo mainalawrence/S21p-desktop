@@ -140,10 +140,10 @@ QJsonObject DatabaseInstance::readRow(const QString &Tablename, QString &UID)con
 
 }
 
-QByteArray DatabaseInstance::readTable(const QString &Tablename) const
+QJsonArray DatabaseInstance::readTable(const QString &Tablename) const
 {
 
-    QByteArray doc;
+    QJsonArray doc;
     if(Tablename.isEmpty()) return {};
     QSqlQuery query(db);
     QString qstatement="SELECT uid , json From "+Tablename;
@@ -151,7 +151,7 @@ QByteArray DatabaseInstance::readTable(const QString &Tablename) const
     if(!query.exec()) return  {};
     if(!query.first())return {};
     while (query.next()) {
-       doc.append("'uid':"+query.value(0).toString()+",'data':"+query.value(1).toByteArray());
+       doc.append('{'+QVariant("\"uid\"").toByteArray()+':'+'\"'+query.value(0).toByteArray()+'\"'+','+QVariant("\"data\"").toString()+':'+query.value(1).toByteArray()+'}');
     }
     return doc;
 }

@@ -24,7 +24,7 @@ public:
     QJsonObject readRow(const QString &Tablename, QString &id)const;
     bool DeleteRowS(const QString &Tablename, const QString &id) const;
     QJsonArray Find(const QString &Tablename, const QString &searchText)const;
-    QByteArray  readTable(const QString &Tablename) const;
+    QJsonArray readTable(const QString &Tablename) const;
     QJsonDocument readTable_Date(const QString &Tablename, const QString Date)const;
     QJsonDocument readTable_Id(const QString &Tablename, const QString id)const;
 

@@ -21,7 +21,7 @@ public:
     virtual QJsonObject readRow(const QString &Tablename, QString &id)const=0;
     virtual QJsonArray Find(const QString &Tablename, const QString &searchText)const=0;
     virtual bool CreatejsonTable(QString tableName) const =0;
-    virtual QByteArray readTable(const QString &Tablename)const=0;
+    virtual QJsonArray readTable(const QString &Tablename)const=0;
     virtual QJsonDocument readTable_Date(const QString &Tablename,const QString Date)const=0;
     virtual QJsonDocument readTable_Id(const QString &Tablename,const QString id)const=0;
 

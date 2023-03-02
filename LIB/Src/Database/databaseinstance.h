@@ -25,9 +25,9 @@ public:
     bool DeleteRowS(const QString &Tablename, const QString &id) const;
     QJsonArray Find(const QString &Tablename, const QString &searchText)const;
     QJsonArray readTable(const QString &Tablename) const;
-    QJsonArray readTable_Date(const QString &Tablename, const QString Date)const;
+    QJsonArray readTableDate(const QString &Tablename, const QString month,const QString year)const;
     QJsonDocument readTable_Id(const QString &Tablename, const QString id)const;
-
+   QJsonArray readTableByPrivilage(const QString &Tablename, const QString privilage)const;
 private:
     QSqlDatabase db;
     QString mDbPassword="pass";

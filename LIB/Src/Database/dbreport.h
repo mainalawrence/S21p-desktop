@@ -23,7 +23,8 @@ public slots:
     QJsonObject onGetReport(QString id);
     bool onRemoveReport(QString id);
     bool onUpdateReport(QString id,QJsonObject json);
-    bool onGetReortbyDate(QDate date);
+    QJsonArray onGetReortbyDate(QString month,QString year);
+    QJsonArray onGetReortbyPrivilage(QString privilage);
 signals:
 private:
    DatabaseInstance *mInstance={nullptr};

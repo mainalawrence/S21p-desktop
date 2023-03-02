@@ -9,7 +9,7 @@ Item {
     anchors.fill: parent
     Pane{
         id:navigationMenu
-        width: 0.2*parent.width
+        width: 0.15*parent.width
         height: parent.height
         Material.elevation: 8
         Column{

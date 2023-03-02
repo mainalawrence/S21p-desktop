@@ -154,14 +154,30 @@ QJsonArray DatabaseInstance::readTable(const QString &Tablename) const
        doc.append('{'+QVariant("\"uid\"").toByteArray()+':'+'\"'+query.value(0).toByteArray()+'\"'+','+QVariant("\"data\"").toString()+':'+query.value(1).toByteArray()+'}');
     }
     return doc;
-}
-QJsonArray DatabaseInstance::readTable_Date(const QString &Tablename, const QString Date)const
+}QJsonArray DatabaseInstance::readTableByPrivilage(const QString &Tablename, const QString privilage)const
 {
     QJsonArray doc;
     if(Tablename.isEmpty()) return {};
     QSqlQuery query(db);
-    QString qstatement="SELECT id ,json From "+Tablename+"  WHERE json->>'date'=':date'";
-    query.bindValue(":date",Date);
+    QString qstatement="SELECT id ,json From "+Tablename+"  WHERE json->>'priv'=':priv'";
+    query.bindValue(":priv",privilage);
+    if(!query.prepare(qstatement)) return {};
+    if(!query.exec()) return  {};
+    if(!query.first())return {};
+    while (query.next()) {
+           doc.append('{'+QVariant("\"uid\"").toByteArray()+':'+'\"'+query.value(0).toByteArray()+'\"'+','+QVariant("\"data\"").toString()+':'+query.value(1).toByteArray()+'}');
+    }
+    return doc;
+}
+
+QJsonArray DatabaseInstance::readTableDate(const QString &Tablename, const QString month, const QString year)const
+{
+    QJsonArray doc;
+    if(Tablename.isEmpty()) return {};
+    QSqlQuery query(db);
+    QString qstatement="SELECT id ,json From "+Tablename+"  WHERE json->>'month'=':month' AND json->>'year'=:year";
+    query.bindValue(":month",month);
+    query.bindValue(":year",year);
     if(!query.prepare(qstatement)) return {};
     if(!query.exec()) return  {};
     if(!query.first())return {};

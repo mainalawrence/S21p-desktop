@@ -32,9 +32,15 @@ bool Report::onUpdateReport(QString id,QJsonObject json)
     return  mInstance->updateRow(mTabeName,id,json);
 }
 
-bool Report::onGetReortbyDate(QDate date)
+QJsonArray Report::onGetReortbyDate(QString month, QString year)
 {
-    return true;
+    return mInstance->readTableDate(mTabeName,month,year);
+
+}
+
+QJsonArray Report::onGetReortbyPrivilage(QString privilage)
+{
+    return mInstance->readTableByPrivilage(mTabeName,privilage);
 }
 
 }

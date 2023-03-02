@@ -4,7 +4,7 @@ import QtQuick.Controls.Material 2.12
 import QtQuick.Controls 2.5
 
 Pane {
-  property int txFwidth: 400
+    property int txFwidth: 400
     property bool error: false
     Column{
         spacing:10
@@ -17,7 +17,7 @@ Pane {
         }
 
         Column{
-              anchors.bottomMargin:50
+            anchors.bottomMargin:50
             Label{
                 text:"Pulisher Code"
             }
@@ -30,11 +30,19 @@ Pane {
             Label{
                 text:"Month"
             }
-            ComboBox{
-                id:month
-                model:['January', 'February', 'March', 'April', 'May', 'June',
-                    'July', 'August', 'September', 'October', 'November', 'December']
-                width:txFwidth
+            Row{
+                spacing: 20
+                ComboBox{
+                    id:month
+                    model:['January', 'February', 'March', 'April', 'May', 'June',
+                        'July', 'August', 'September', 'October', 'November', 'December']
+                    width:txFwidth/2
+                }
+                ComboBox{
+                    id:year
+                    width:txFwidth/2
+                    model:[Number(new Date().getFullYear()),Number(new Date().getFullYear())-1,Number(new Date().getFullYear())-2,Number(new Date().getFullYear())-3,Number(new Date().getFullYear())-4,Number(new Date().getFullYear())-5,Number(new Date().getFullYear())-6]
+                }
             }
         }
         Column{
@@ -99,8 +107,8 @@ Pane {
                 Material.background: Material.Teal
                 onClicked: {
                     if(pubcode.text.length>=3){
-                      let data={"code":pubcode.text,"month":month.currentText.toString(),"year":new Date().getFullYear().toString(),"Publications":Number(publishertxt.text),"Videos":Number(videostxt.text),"Hours":Number(hourstxt.text),"RVS":Number(rvstxt.text),"Studies":Number(studiestxt.text),"Comment":commenttxt.text, "regD":new Date()}
-                    masterController.ui_database_controller.ui_Reports.onCreateReport(data)
+                        let data={"code":pubcode.text,"month":month.currentText.toString(),"year":year.currentText.toString(),"Publications":Number(publishertxt.text),"Videos":Number(videostxt.text),"Hours":Number(hourstxt.text),"RVS":Number(rvstxt.text),"Studies":Number(studiestxt.text),"Comment":commenttxt.text, "regD":new Date()}
+                        masterController.ui_database_controller.ui_Reports.onCreateReport(data)
                     }
                     else{
                         error=true;
@@ -109,8 +117,8 @@ Pane {
             }
             Button{
                 text:"Cancel"
-                  width:txFwidth/2-10
-                  Material.background: Material.Red
+                width:txFwidth/2-10
+                Material.background: Material.Red
             }
         }
     }

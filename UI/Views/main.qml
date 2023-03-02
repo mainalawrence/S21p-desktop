@@ -37,7 +37,7 @@ ApplicationWindow {
         id:mainview
         anchors.fill: parent
 //        initialItem: Qt.resolvedUrl("Login.qml")
-        initialItem: Qt.resolvedUrl("Settings.qml")
+        initialItem: Qt.resolvedUrl("Report.qml")
     }
 
 }

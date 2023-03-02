@@ -25,7 +25,7 @@ public:
     bool DeleteRowS(const QString &Tablename, const QString &id) const;
     QJsonArray Find(const QString &Tablename, const QString &searchText)const;
     QJsonArray readTable(const QString &Tablename) const;
-    QJsonDocument readTable_Date(const QString &Tablename, const QString Date)const;
+    QJsonArray readTable_Date(const QString &Tablename, const QString Date)const;
     QJsonDocument readTable_Id(const QString &Tablename, const QString id)const;
 
 private:

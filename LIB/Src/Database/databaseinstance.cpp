@@ -155,9 +155,9 @@ QJsonArray DatabaseInstance::readTable(const QString &Tablename) const
     }
     return doc;
 }
-QJsonDocument DatabaseInstance::readTable_Date(const QString &Tablename, const QString Date)const
+QJsonArray DatabaseInstance::readTable_Date(const QString &Tablename, const QString Date)const
 {
-    QJsonDocument doc;
+    QJsonArray doc;
     if(Tablename.isEmpty()) return {};
     QSqlQuery query(db);
     QString qstatement="SELECT id ,json From "+Tablename+"  WHERE json->>'date'=':date'";
@@ -166,11 +166,7 @@ QJsonDocument DatabaseInstance::readTable_Date(const QString &Tablename, const Q
     if(!query.exec()) return  {};
     if(!query.first())return {};
     while (query.next()) {
-        auto jsonkey=query.value(0).toString();
-        auto json= query.value(1).toByteArray();
-        doc=QJsonDocument::fromJson(json);
-        if(doc.isEmpty())return {};
-        qDebug()<<json;
+           doc.append('{'+QVariant("\"uid\"").toByteArray()+':'+'\"'+query.value(0).toByteArray()+'\"'+','+QVariant("\"data\"").toString()+':'+query.value(1).toByteArray()+'}');
     }
     return doc;
 }

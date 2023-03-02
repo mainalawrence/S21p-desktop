@@ -5,7 +5,7 @@ import QtQuick.Controls.Material 2.12
 Pane{
     property int txFwidth: 400
     Column{
-        spacing:10
+        spacing:5
         anchors.horizontalCenter:parent.horizontalCenter
         anchors.topMargin:-100
         Column{
@@ -77,13 +77,39 @@ Pane{
             Label{
                 text:"Type Publisher"
             }
-            TextField{
-                width:txFwidth
-                  placeholderText:"Elder"
-
+            Row{
+                CheckBox{
+                    checked:true;
+                    text:"Publisher"
+                }
+                CheckBox{
+                    checked:false;
+                    text:"Un-Baptized"
+                }
+                CheckBox{
+                    checked:false;
+                    text:"Aux-Pioneer"
+                }
             }
+             Row{
+
+                CheckBox{
+                    checked:false;
+                    text:"Reg-Pioneer"
+                }
+                CheckBox{
+                    checked:false;
+                    text:"Elder"
+                }
+                CheckBox{
+                     checked:false;
+                     text:"MS"
+                 }
+             }
+
         }
         Row{
+            spacing: 20
             Button{
                 text:"Save"
                 width:txFwidth/2

@@ -140,5 +140,61 @@ QJsonObject DatabaseInstance::readRow(const QString &Tablename, QString &UID)con
 
 }
 
+QByteArray DatabaseInstance::readTable(const QString &Tablename) const
+{
+
+    QByteArray doc;
+    if(Tablename.isEmpty()) return {};
+    QSqlQuery query(db);
+    QString qstatement="SELECT uid , json From "+Tablename;
+    if(!query.prepare(qstatement)) return {};
+    if(!query.exec()) return  {};
+    if(!query.first())return {};
+    while (query.next()) {
+       doc.append("'uid':"+query.value(0).toString()+",'data':"+query.value(1).toByteArray());
+    }
+    return doc;
+}
+QJsonDocument DatabaseInstance::readTable_Date(const QString &Tablename, const QString Date)const
+{
+    QJsonDocument doc;
+    if(Tablename.isEmpty()) return {};
+    QSqlQuery query(db);
+    QString qstatement="SELECT id ,json From "+Tablename+"  WHERE json->>'date'=':date'";
+    query.bindValue(":date",Date);
+    if(!query.prepare(qstatement)) return {};
+    if(!query.exec()) return  {};
+    if(!query.first())return {};
+    while (query.next()) {
+        auto jsonkey=query.value(0).toString();
+        auto json= query.value(1).toByteArray();
+        doc=QJsonDocument::fromJson(json);
+        if(doc.isEmpty())return {};
+        qDebug()<<json;
+    }
+    return doc;
+}
+
+QJsonDocument DatabaseInstance::readTable_Id(const QString &Tablename, const QString id)const
+{
+    QJsonDocument doc;
+    if(Tablename.isEmpty()) return {};
+    QSqlQuery query(db);
+    QString qstatement="SELECT id ,json From "+Tablename +" WHERE json->>'UID'=':id'";
+    query.bindValue(":id",id);
+    if(!query.prepare(qstatement)) return {};
+    if(!query.exec()) return  {};
+    if(!query.first())return {};
+    while (query.next()) {
+        auto jsonkey=query.value(0).toString();
+        auto json= query.value(1).toByteArray();
+        //QJsonObject w(jsonkey,json);
+        doc=QJsonDocument::fromJson(json);
+        if(doc.isEmpty())return {};
+        qDebug()<<json;
+    }
+    return doc;
+}
+
 
 }

@@ -88,8 +88,9 @@ Item {
                     width:buttons.width/2-10
                     enabled: activateenterclockbtn()
                     onClicked: {
-                        console.log(buttons.width)
-                        masterController.onLogin(usernametxt.text.toLowerCase(),passwordtxt.text.toLowerCase())
+
+                         masterController.ui_navigationController.goCreateDashBoardView()
+//                        masterController.onLogin(usernametxt.text.toLowerCase(),passwordtxt.text.toLowerCase())
                         passwordtxt.clear()
                         usernametxt.clear()
                     }

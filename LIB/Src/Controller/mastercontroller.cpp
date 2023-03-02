@@ -36,7 +36,6 @@ const QString MasterController::username() const
 const QString MasterController::message() const
 {
     return "KARATINA S21 SYSTEM";
-
 }
 
 

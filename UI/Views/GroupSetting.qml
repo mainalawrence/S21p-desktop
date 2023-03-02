@@ -3,9 +3,11 @@ import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Controls.Material 2.12
 import QtQuick.Controls 2.5
+import Lib 1.0
 
 Pane{
    anchors.fill: parent
+
     Pane{
         id:groups
        height: parent.height
@@ -20,21 +22,34 @@ Pane{
                spacing: 20
                width: parent.width
                height: parent.height
-               model:["Mathaithi","Kiamabara","Town","Congration"]
+               model: masterController.ui_database_controller.ui_Groups.onGetGroups()
                delegate: Rectangle{
                    width: parent.width
                    height:50
                    radius: 5
+               Row{
+                   spacing: 10
+                   width: parent.width
+                   height: parent.height
                    Text {
-                       id: name
-                        anchors.centerIn: parent
-                       text: qsTr(modelData)
+                       id: nametxt
+                       text: qsTr("   "+JSON.parse(modelData)["name"])
+                       width: parent.width*0.8
+                       anchors.verticalCenter: parent.verticalCenter
+                       font.bold:true
+                       font.pixelSize: 16
+                   }
+                   Button{
+                       text: "X"
+                       onClicked: {
+                           masterController.ui_database_controller.ui_Groups.onRemoveGroup(JSON.stringify(modelData)["regD"])
+                       }
                    }
                }
+               }
+
            }
        }
-
-
     }
     Pane{
         id:addGroup
@@ -54,6 +69,7 @@ Pane{
                 text: qsTr("ADD SERVICE GROUP")
             }
             TextField{
+                id:serviceGroupNametxf
                 width:200
             }
             Row{
@@ -61,7 +77,9 @@ Pane{
                 Button{
                     text:"Add"
                     Material.background: Material.Teal
-
+                    onClicked:{
+                    masterController.ui_database_controller.ui_Groups.onCreateGroup({"name":serviceGroupNametxf.text,"regD":Date().toString()})
+                    }
                 }
                 Button{
                     text:"Cancel"
@@ -72,5 +90,6 @@ Pane{
 
     }
 }
+
 
 

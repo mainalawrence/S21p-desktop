@@ -7,5 +7,17 @@ Database_controller::Database_controller(QObject *parent) : QObject(parent)
 {
     mDatabaseInstance=new DATABASE::DatabaseInstance(this);
     mLogin=new DATABASE::Login(this,mDatabaseInstance);
+    mGroups=new DATABASE::Groups(this,mDatabaseInstance);
 }
+
+DATABASE::Login *Database_controller::getLogin() const
+{
+    return this->mLogin;
+}
+
+DATABASE::Groups *Database_controller::getGroups() const
+{
+    return this->mGroups;
+}
+
 }

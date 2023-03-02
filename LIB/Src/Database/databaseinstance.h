@@ -4,6 +4,7 @@
 #include <QSqlQuery>
 #include<QSqlDatabase>
 #include<Lib_global.h>
+#include<QByteArray>
 #include<Controller/Main_Databasecontroller.h>
 
 namespace DATABASE {
@@ -23,6 +24,9 @@ public:
     QJsonObject readRow(const QString &Tablename, QString &id)const;
     bool DeleteRowS(const QString &Tablename, const QString &id) const;
     QJsonArray Find(const QString &Tablename, const QString &searchText)const;
+    QByteArray  readTable(const QString &Tablename) const;
+    QJsonDocument readTable_Date(const QString &Tablename, const QString Date)const;
+    QJsonDocument readTable_Id(const QString &Tablename, const QString id)const;
 
 private:
     QSqlDatabase db;

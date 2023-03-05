@@ -6,8 +6,6 @@ import QtQuick.Controls 2.5
 import Lib 1.0
 
 Pane{
-    anchors.fill: parent
-
     Pane{
         id:groups
         height: parent.height

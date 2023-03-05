@@ -6,7 +6,6 @@ import QtQuick.Controls 2.5
 
 Pane{
     id:root
-    anchors.fill: parent
     Row{
         anchors.fill: parent
         spacing: 10

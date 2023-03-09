@@ -1,6 +1,6 @@
 #include "databaseinstance.h"
 #include<QDebug>
-
+//nice
 namespace DATABASE {
 DatabaseInstance::DatabaseInstance(QObject *parent) : Main_DatabaseController(parent)
 {
@@ -29,7 +29,7 @@ bool DatabaseInstance::createTable()
 bool DatabaseInstance::CreatejsonTable(QString tableName) const
 {
     QSqlQuery query(db);
-    QString qstatement="CREATE TABLE IF NOT EXISTS "+tableName+"(id BIGSERIAL NOT NULL,UID text NOT NULL PRIMARY KEY,json JSONB NOT NULL);";
+    QString qstatement="CREATE TABLE IF NOT EXISTS "+tableName+"(id BIGSERIAL NOT NULL,code text NOT NULL PRIMARY KEY,json JSONB NOT NULL);";
     return query.exec(qstatement);
 }
 
@@ -168,6 +168,25 @@ QJsonArray DatabaseInstance::readTable(const QString &Tablename) const
            doc.append('{'+QVariant("\"uid\"").toByteArray()+':'+'\"'+query.value(0).toByteArray()+'\"'+','+QVariant("\"data\"").toString()+':'+query.value(1).toByteArray()+'}');
     }
     return doc;
+}
+
+QJsonArray DatabaseInstance::readTableMultipleTables(const QString &Table1name, const QString &Table2name, const QString &join1, const QString &join2) const
+{
+    QJsonArray doc;
+    if(Table1name.isEmpty()|| Table2name.isEmpty() || join1.isEmpty() || join2.isEmpty()){
+        return {};
+    }
+
+    QSqlQuery query(db);
+        QString qstatement="SELECT id ,json From "+Table1name+" JOIN "+Table1name+" "+join1+" AND "+Table2name+".";
+        query.bindValue(":priv",Table2name);
+        if(!query.prepare(qstatement)) return {};
+        if(!query.exec()) return  {};
+        if(!query.first())return {};
+        while (query.next()) {
+               doc.append('{'+QVariant("\"uid\"").toByteArray()+':'+'\"'+query.value(0).toByteArray()+'\"'+','+QVariant("\"data\"").toString()+':'+query.value(1).toByteArray()+'}');
+        }
+        return doc;
 }
 
 QJsonArray DatabaseInstance::readTableDate(const QString &Tablename, const QString month, const QString year)const

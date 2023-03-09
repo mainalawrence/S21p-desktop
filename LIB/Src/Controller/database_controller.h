@@ -20,6 +20,7 @@
 #include<Database/groups.h>
 #include<Database/dbreport.h>
 
+
 namespace Controller
 {
 class LIB_EXPORT  Database_controller:public QObject

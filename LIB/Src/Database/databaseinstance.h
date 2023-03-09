@@ -28,6 +28,7 @@ public:
     QJsonArray readTableDate(const QString &Tablename, const QString month,const QString year)const;
     QJsonDocument readTable_Id(const QString &Tablename, const QString id)const;
    QJsonArray readTableByPrivilage(const QString &Tablename, const QString privilage)const;
+   QJsonArray readTableMultipleTables(const QString &Table1name,const QString &Table2name,const QString &join1,const QString &join2)const;
 private:
     QSqlDatabase db;
     QString mDbPassword="pass";

@@ -24,6 +24,7 @@ public:
     virtual QJsonArray readTable(const QString &Tablename)const=0;
     virtual QJsonArray readTableDate(const QString &Tablename, const QString month,const QString year)const=0;
     virtual QJsonDocument readTable_Id(const QString &Tablename,const QString id)const=0;
+    virtual QJsonArray readTableMultipleTables(const QString &Table1name,const QString &Table2name,const QString &join1,const QString &join2)const=0;
 
 };
 }

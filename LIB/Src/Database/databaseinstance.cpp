@@ -178,8 +178,7 @@ QJsonArray DatabaseInstance::readTableMultipleTables(const QString &Table1name, 
     }
 
     QSqlQuery query(db);
-        QString qstatement="SELECT id ,json From "+Table1name+" JOIN "+Table1name+" "+join1+" AND "+Table2name+".";
-        query.bindValue(":priv",Table2name);
+        QString qstatement="SELECT id ,json From "+Table1name+" JOIN "+Table2name +"ON "+Table1name+"."+join1+ "="+Table2name+"."+join2;
         if(!query.prepare(qstatement)) return {};
         if(!query.exec()) return  {};
         if(!query.first())return {};

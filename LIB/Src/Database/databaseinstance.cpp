@@ -4,18 +4,7 @@
 namespace DATABASE {
 DatabaseInstance::DatabaseInstance(QObject *parent) : Main_DatabaseController(parent)
 {
-    if(databaseinitialization()){
-        QSqlQuery query("SELECT * FROM groups");
-        if(createTable()){
-            qDebug() << "Database tables created";
-        }
-        else {
-            qDebug() << "ERROR: Unable to create database tables";
-        }
-    }
-    else {
-        qDebug() << "ERROR: Unable to open database";
-    }
+
 }
 bool DatabaseInstance::createTable()
 {
@@ -186,6 +175,22 @@ QJsonArray DatabaseInstance::readTableMultipleTables(const QString &Table1name, 
                doc.append('{'+QVariant("\"uid\"").toByteArray()+':'+'\"'+query.value(0).toByteArray()+'\"'+','+QVariant("\"data\"").toString()+':'+query.value(1).toByteArray()+'}');
         }
         return doc;
+}
+
+void DatabaseInstance::DatabaseInizialization()
+{
+    if(databaseinitialization()){
+        QSqlQuery query("SELECT * FROM groups");
+        if(createTable()){
+            qDebug() << "Database tables created";
+        }
+        else {
+            qDebug() << "ERROR: Unable to create database tables";
+        }
+    }
+    else {
+        qDebug() << "ERROR: Unable to open database";
+    }
 }
 
 QJsonArray DatabaseInstance::readTableDate(const QString &Tablename, const QString month, const QString year)const

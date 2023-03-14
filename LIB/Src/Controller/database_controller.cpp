@@ -5,6 +5,7 @@ namespace Controller {
 
 Database_controller::Database_controller(QObject *parent) : QObject(parent)
 {
+    
     mDatabaseInstance=new DATABASE::DatabaseInstance(this);
     mDatabaseInstance->DatabaseInizialization();//connect to the database;
     mLogin=new DATABASE::Login(this,mDatabaseInstance);

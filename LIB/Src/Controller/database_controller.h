@@ -20,9 +20,11 @@
 #include<Database/groups.h>
 #include<Database/dbreport.h>
 
-
+//this include the main controll of the application
+//its the gate way
 namespace Controller
 {
+
 class LIB_EXPORT  Database_controller:public QObject
 {
     Q_OBJECT

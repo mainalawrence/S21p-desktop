@@ -38,7 +38,6 @@ const QString MasterController::message() const
     return "KARATINA S21 SYSTEM";
 }
 
-
 NavigationController *MasterController::navigationController()const
 {
     return implimentation->navigation;

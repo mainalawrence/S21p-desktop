@@ -88,6 +88,7 @@ public:
         }
         return entity;
     }
+    
 private:
     QList<T*> collection;
 };
